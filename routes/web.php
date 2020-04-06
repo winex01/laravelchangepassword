@@ -6,9 +6,6 @@ Route::group([
 	'prefix' => 'password',
 	'namespace' => '\\Winnie\\LaravelChangePassword\\Http\Controllers'
 ], function () {
-	Route::get('/change', ['uses' => 'ChangePasswordController@index']);
+	Route::get('/change', ['uses' => 'ChangePasswordController@index'])->name('password.change');
+	Route::patch('/change', ['uses' => 'ChangePasswordController@update'])->name('password.change.update');
 });
-
-
-
-// Route::get('login', ['uses' => $namespacePrefix.'VoyagerAuthController@login',     'as' => 'login']);
