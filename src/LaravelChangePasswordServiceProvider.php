@@ -14,7 +14,7 @@ class LaravelChangePasswordServiceProvider extends ServiceProvider
     public function boot()
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'winnie');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'winnie');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'winnie');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
@@ -22,6 +22,7 @@ class LaravelChangePasswordServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
+
     }
 
     /**
@@ -37,6 +38,7 @@ class LaravelChangePasswordServiceProvider extends ServiceProvider
         $this->app->singleton('laravelchangepassword', function ($app) {
             return new LaravelChangePassword;
         });
+
     }
 
     /**
