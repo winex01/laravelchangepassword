@@ -1,0 +1,46 @@
+{
+    "name": "winnie/laravelchangepassword",
+    "description": ":package_description",
+    "license": "license",
+    "authors": [
+        {
+            "name": "author name",
+            "email": "author email",
+            "homepage": "author homepage"
+        }
+    ],
+    "homepage": "https://github.com/winnie/laravelchangepassword",
+    "keywords": ["Laravel", "LaravelChangePassword"],
+    "require": {
+        "illuminate/support": "~5|~6|~7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3|~4",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Winnie\\LaravelChangePassword\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Winnie\\LaravelChangePassword\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Winnie\\LaravelChangePassword\\LaravelChangePasswordServiceProvider"
+            ],
+            "aliases": {
+                "LaravelChangePassword": "Winnie\\LaravelChangePassword\\Facades\\LaravelChangePassword"
+            }
+        },
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
