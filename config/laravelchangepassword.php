@@ -1,6 +1,6 @@
 <?php
 
 return [
-    // redirect after changing password
+    // redirect after changing password to
     'redirectTo' => '/home'
 ];

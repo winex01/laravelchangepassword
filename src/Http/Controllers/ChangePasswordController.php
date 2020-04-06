@@ -24,6 +24,7 @@ class ChangePasswordController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -31,6 +32,10 @@ class ChangePasswordController extends Controller
         //
         $userId = auth()->user()->id;
         $user = User::findOrFail($userId);
+
+        $request->validate(
+            $this->rules(), $this->validationErrorMessages()
+        );
 
         $user->update([
             'password' => bcrypt($request->password)
@@ -41,5 +46,29 @@ class ChangePasswordController extends Controller
             config('laravelchangepassword.redirectTo')
         );
     }
+
+    /**
+     * Change password validation rules.
+     *
+     * @return array
+     */
+    protected function rules()
+    {
+        return [
+            'token' => 'required',
+            'password' => 'required|confirmed|min:8',
+        ];
+    }
+
+    /**
+     * Change password validation error messages.
+     *
+     * @return array
+     */
+    protected function validationErrorMessages()
+    {
+        return [];
+    }
+
 
 }
