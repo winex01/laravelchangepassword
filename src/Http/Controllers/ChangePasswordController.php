@@ -33,9 +33,7 @@ class ChangePasswordController extends Controller
         $userId = auth()->user()->id;
         $user = User::findOrFail($userId);
 
-        $request->validate(
-            $this->rules(), $this->validationErrorMessages()
-        );
+        $request->validate($this->rules());
 
         $user->update([
             'password' => bcrypt($request->password)
@@ -55,20 +53,8 @@ class ChangePasswordController extends Controller
     protected function rules()
     {
         return [
-            'token' => 'required',
             'password' => 'required|confirmed|min:8',
         ];
     }
-
-    /**
-     * Change password validation error messages.
-     *
-     * @return array
-     */
-    protected function validationErrorMessages()
-    {
-        return [];
-    }
-
 
 }
