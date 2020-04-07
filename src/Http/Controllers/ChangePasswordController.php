@@ -5,6 +5,8 @@ namespace Winnie\LaravelChangePassword\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class ChangePasswordController extends Controller
 {
@@ -33,7 +35,19 @@ class ChangePasswordController extends Controller
         $userId = auth()->user()->id;
         $user = User::findOrFail($userId);
 
-        $request->validate($this->rules());
+        $validator = Validator::make(
+            $request->all(), 
+            $this->rules()
+        );
+
+        if ( !Hash::check($request->old_password, $user->password) ) {
+            $validator->after(function ($validator) {
+                $validator->errors()->add('old_password', 'Your current password is incorrect.');
+            });
+        }
+
+        //run validation which will redirect on failure
+        $validator->validate();
 
         $user->update([
             'password' => bcrypt($request->password)
@@ -53,6 +67,7 @@ class ChangePasswordController extends Controller
     protected function rules()
     {
         return [
+            'old_password' => 'required',
             'password' => 'required|confirmed|min:8',
         ];
     }
