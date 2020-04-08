@@ -9,7 +9,7 @@
             "homepage": "author homepage"
         }
     ],
-    "homepage": "https://github.com/winnie/laravelchangepassword",
+    "homepage": "https://github.com/winex01/laravelchangepassword",
     "keywords": ["Laravel", "LaravelChangePassword"],
     "require": {
         "illuminate/support": "~5|~6|~7",
