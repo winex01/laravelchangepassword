@@ -64,9 +64,9 @@ class LaravelChangePasswordServiceProvider extends ServiceProvider
         ], 'laravelchangepassword.config');
 
         // Publishing the views.
-        /*$this->publishes([
+        $this->publishes([
             __DIR__.'/../resources/views' => base_path('resources/views/vendor/winnie'),
-        ], 'laravelchangepassword.views');*/
+        ], 'laravelchangepassword.views');
 
         // Publishing assets.
         /*$this->publishes([
