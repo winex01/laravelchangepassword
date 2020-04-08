@@ -14,6 +14,7 @@
 
                         {{-- @dump($errors) --}}
                         
+                        @if( config('laravelchangepassword.enable_current_password') )
                         <div class="form-group row">
                             <label for="old_password" class="col-md-4 col-form-label text-md-right">{{ __('Current Password') }}</label>
 
@@ -27,6 +28,7 @@
                                 @enderror
                             </div>
                         </div>
+                        @endif
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

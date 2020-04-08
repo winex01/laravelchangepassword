@@ -40,10 +40,15 @@ class ChangePasswordController extends Controller
             $this->rules()
         );
 
-        if ( !Hash::check($request->old_password, $user->password) ) {
-            $validator->after(function ($validator) {
-                $validator->errors()->add('old_password', 'Your current password is incorrect.');
-            });
+        if ( $this->enableCurrentPassword() ) {
+            if ( !Hash::check($request->old_password, $user->password) ) {
+                $validator->after(function ($validator) {
+                    $validator->errors()->add(
+                        'old_password', 
+                        config('laravelchangepassword.current_password_error_msg')
+                    );
+                });
+            }
         }
 
         //run validation which will redirect on failure
@@ -53,9 +58,10 @@ class ChangePasswordController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-        // TODO: toaster message
+        toastr()->success(config('laravelchangepassword.current_password_success_msg'));
+
         return redirect(
-            config('laravelchangepassword.redirectTo')
+            config('laravelchangepassword.redirect_to')
         );
     }
 
@@ -66,10 +72,25 @@ class ChangePasswordController extends Controller
      */
     protected function rules()
     {
-        return [
-            'old_password' => 'required',
-            'password' => 'required|confirmed|min:8',
+        $return = [
+            'password' => 'required|confirmed|min:8'
         ];
+
+        if ( $this->enableCurrentPassword() ) {
+            $return['old_password'] = 'required';
+        }
+
+        return $return;
+    }
+
+    /**
+     * Change password validation rules.
+     *
+     * @return array
+     */
+    protected function enableCurrentPassword()
+    {
+        return config('laravelchangepassword.enable_current_password');
     }
 
 }
@@ -77,4 +98,5 @@ class ChangePasswordController extends Controller
 /*
     TODO:: readme
     TODO:: publish views
+    TODO:: blade directive
 */
