@@ -12,7 +12,7 @@
                         @csrf
                         @method('PATCH')
 
-                        @dump($errors)
+                        {{-- @dump($errors) --}}
                         
                         <div class="form-group row">
                             <label for="old_password" class="col-md-4 col-form-label text-md-right">{{ __('Current Password') }}</label>
