@@ -33,6 +33,12 @@ $ php artisan vendor:publish --provider='Winnie\LaravelChangePassword\LaravelCha
 
 ## Usage
 
+Add this to your `routes/web.php`
+
+```php
+LaravelChangePassword::routes(); 
+```
+
 You can edit the config file to change settings.
 
 1. redirect_to - where you want to redirect after change password successfully.
