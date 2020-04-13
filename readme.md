@@ -6,10 +6,9 @@
 [![StyleCI][ico-styleci]][link-styleci]
 
 This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+Laravel framework change password functionality. I assume you use laravel auth / laravel ui.
 
 ## Installation
-
-0. I assume you use laravel auth / laravel ui.
 
 1. Require the Package via Composer
 
