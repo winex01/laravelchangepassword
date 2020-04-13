@@ -27,7 +27,7 @@ $ composer require winnie/laravelchangepassword
 ];
 ```
 
-3. As optional if you want to modify the default configuration, you can publish the configuration file:
+3. Publish the configuration file:
  
 ```sh
 $ php artisan vendor:publish --provider='Winnie\LaravelChangePassword\LaravelChangePasswordServiceProvider'
