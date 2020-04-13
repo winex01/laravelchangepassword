@@ -5,7 +5,6 @@
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
 Laravel framework change password functionality. I assume you use laravel auth / laravel ui.
 
 ## Installation
@@ -33,6 +32,17 @@ $ php artisan vendor:publish --provider='Winnie\LaravelChangePassword\LaravelCha
 ```
 
 ## Usage
+
+You can edit the config file to change settings.
+
+1. redirect_to - where you want to redirect after change password successfully.
+
+2. enable_current_password - set to false if you want to remove current password field/functionality.
+
+3. current_password_error_msg - validation error message.
+
+4. current_password_success_msg - toastr success message.
+
 
 ## Change log
 
