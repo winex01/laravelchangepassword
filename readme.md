@@ -9,10 +9,36 @@ This is where your description should go. Take a look at [contributing.md](contr
 
 ## Installation
 
+### 0. Requirements
+
+I assume you've used laravel auth / laravel ui.
+
+### 1. Require the Package
+
 Via Composer
 
 ``` bash
 $ composer require winnie/laravelchangepassword
+```
+
+### 2. Add service provider
+
+Then add the service provider to `config/app.php`. In Laravel versions 5.5 and beyond, this step can be skipped if package auto-discovery is enabled.
+
+```php
+'providers' => [
+    ...
+    Winnie\LaravelChangePassword\LaravelChangePasswordServiceProvider::class
+    ...
+];
+```
+
+### 3. Publish vendor views and config
+
+As optional if you want to modify the default configuration, you can publish the configuration file:
+ 
+```sh
+$ php artisan vendor:publish --provider='Winnie\LaravelChangePassword\LaravelChangePasswordServiceProvider'
 ```
 
 ## Usage
@@ -53,5 +79,5 @@ license. Please see the [license file](license.md) for more information.
 [link-downloads]: https://packagist.org/packages/winnie/laravelchangepassword
 [link-travis]: https://travis-ci.org/winnie/laravelchangepassword
 [link-styleci]: https://styleci.io/repos/12345678
-[link-author]: https://github.com/winnie
+[link-author]: https://github.com/winex01
 [link-contributors]: ../../contributors
