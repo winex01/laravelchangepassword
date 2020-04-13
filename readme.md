@@ -39,6 +39,21 @@ Add this to your `routes/web.php`
 LaravelChangePassword::routes(); 
 ```
 
+You can visit this route for change password your-website/password/change
+
+You can also use this route name
+
+```blade
+	{{ route('password.change') }} 
+```
+
+Example:
+```blade
+<a class="dropdown-item" href="{{ route('password.change') }}">
+    {{ __('Change Password') }}
+</a> 
+```
+
 You can edit the config file to change settings.
 
 1. redirect_to - where you want to redirect after change password successfully.
