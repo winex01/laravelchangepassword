@@ -56,13 +56,33 @@ Example:
 
 You can edit the config file to change settings.
 
-1. redirect_to - where you want to redirect after change password successfully.
+```php
+<?php
 
-2. enable_current_password - set to false if you want to remove current password field/functionality.
+namespace App\Http\Controllers;
 
-3. current_password_error_msg - validation error message.
+use App\Post;
+use App\Http\Requests\PostRequest;
+use Illuminate\Database\Eloquent\Model;
 
-4. current_password_success_msg - toastr success message.
+class PostController extends Controller
+{
+    public function store(PostRequest $request)
+    {
+        $post = Post::create($request->only(['title', 'body']));
+
+        if ($post instanceof Model) {
+            toastr()->success('Data has been saved successfully!');
+
+            return redirect()->route('posts.index');
+        }
+
+        toastr()->error('An error has occurred please try again later.');
+
+        return back();
+    }
+}
+```
 
 
 ## Change log
