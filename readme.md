@@ -54,34 +54,27 @@ Example:
 </a> 
 ```
 
-You can edit the config file to change settings.
+You can edit the config file to change settings at `config/laravelchangepassword.php`.
 
 ```php
 <?php
 
-namespace App\Http\Controllers;
+return [
+    // Redirect after changing password to
+    'redirect_to' => '/home',
 
-use App\Post;
-use App\Http\Requests\PostRequest;
-use Illuminate\Database\Eloquent\Model;
 
-class PostController extends Controller
-{
-    public function store(PostRequest $request)
-    {
-        $post = Post::create($request->only(['title', 'body']));
+    // Enable current password field
+    'enable_current_password' => true,
 
-        if ($post instanceof Model) {
-            toastr()->success('Data has been saved successfully!');
 
-            return redirect()->route('posts.index');
-        }
+    // Validation error message.
+    'current_password_error_msg' => 'Your current password is incorrect.',
 
-        toastr()->error('An error has occurred please try again later.');
 
-        return back();
-    }
-}
+    // ALert success message
+    'current_password_success_msg' => 'Password change successfully!',
+];
 ```
 
 
