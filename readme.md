@@ -7,6 +7,8 @@
 
 Laravel framework change password functionality. I assume you use built-in laravel authentication / laravel ui.
 
+<p align="center"><img width="300" alt="toastr" src="https://user-images.githubusercontent.com/23657442/79085433-255c4c80-7d6b-11ea-9465-fec9667a9ed3.png"></p>
+
 ## Installation
 
 1. Require the Package via Composer
