@@ -5,7 +5,7 @@
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
 
-Laravel framework change password functionality. I assume you use laravel auth / laravel ui.
+Laravel framework change password functionality. I assume you use built-in laravel authentication / laravel ui.
 
 ## Installation
 
@@ -58,7 +58,6 @@ You can edit the config file to change settings at `config/laravelchangepassword
 
 ```php
 <?php
-
 return [
     // Redirect after changing password to
     'redirect_to' => '/home',
@@ -76,6 +75,8 @@ return [
     'current_password_success_msg' => 'Password change successfully!',
 ];
 ```
+
+If you want to override views, navigate to `resources/views/vendor/winnie/auth/passwords/change.blade.php`
 
 
 ## Change log
