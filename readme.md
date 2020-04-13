@@ -39,12 +39,12 @@ Add this to your `routes/web.php`
 LaravelChangePassword::routes(); 
 ```
 
-You can visit this route for change password your-website/password/change
+You can visit this route for change password `your-website/password/change`
 
 You can also use this route name
 
 ```blade
-	{{ route('password.change') }} 
+{{ route('password.change') }} 
 ```
 
 Example:
