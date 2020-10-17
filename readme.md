@@ -80,6 +80,25 @@ return [
 
 If you want to override views, navigate to `resources/views/vendor/winnie/auth/passwords/change.blade.php`
 
+If you want to include beautiful toaster notification add this blade directives below.
+
+
+```blade
+<!doctype html>
+<html>
+    <head>
+        <title>Toastr.js</title>
+        @toastr_css
+    </head>
+    <body>
+        
+    </body>
+    @jquery
+    @toastr_js
+    @toastr_render
+</html>
+```
+
 
 ## Change log
 
